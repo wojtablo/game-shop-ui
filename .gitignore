@@ -1,0 +1,15 @@
+# Exclude stuff from IntelliJ IDEA & Visual Studio Code
+.idea
+.vscode
+
+# Package managers
+node_modules
+vendor
+
+# Distribution
+dist
+!public/s/.gitkeep
+
+# Fake data endpoints
+data
+
