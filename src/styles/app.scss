@@ -3,4 +3,17 @@
 @import
 
   // Reset some default settings
-  'utils/reset';
+  'utils/reset',
+
+  // Mockup
+  'themes/mockup',
+
+  // Global styles
+  'global',
+
+  // Selected components
+  'components/products',
+  'components/cart',
+  'components/account'
+;
+

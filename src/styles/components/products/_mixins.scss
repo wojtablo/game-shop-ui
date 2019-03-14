@@ -1,0 +1,15 @@
+@mixin ciBadge($element, $badgeTextColor, $badgeBgColor){
+  #{$element} {
+    position:relative;
+    &::before {
+       background-color: $badgeBgColor;
+      color: $badgeTextColor;
+      content: attr(data-badge);
+      position: absolute;
+      padding: .25rem .45rem;
+      top: 0;
+      left:0;
+      z-index:2;
+    }
+  }
+}

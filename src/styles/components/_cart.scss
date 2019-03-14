@@ -1,0 +1,61 @@
+.c-cart {
+
+  padding: 10px;
+  background: #eee;
+
+  // Cart total
+  &__count {
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  // Content Layout definition
+  .cl-list {
+    &__item {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__items {
+
+  }
+
+  // List item
+  .ci {
+    background: #333;
+    padding: 10px;
+    &__header {
+      display: flex;
+      &__name {
+        font-weight: normal;
+      }
+      &__price {
+        margin-left: auto;
+      }
+    }
+
+    &__figure {
+      margin-top:20px;
+      &__image {
+        height: 50px;
+      }
+    }
+
+    a {
+      color: red;
+    }
+  }
+
+  // CTA
+  &__checkout {
+    button {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      font-size:1.2rem;
+      background: green;
+      color: #fff;
+    }
+  }
+
+}

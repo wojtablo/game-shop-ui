@@ -11,14 +11,175 @@
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-
+    <script type="module" src="./dist/s/js/app.js"></script>
+    <link rel="stylesheet" href="/dist/s/css/main.css">
     <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-    <h1>Game Shop UI</h1>
-</body>
+    <header id="header"></header>
 
+    <!--<div class="lines">-->
+        <!--<div class="line"></div>-->
+        <!--<div class="line"></div>-->
+        <!--<div class="line"></div>-->
+        <!--<div class="line"></div>-->
+        <!--<div class="line"></div>-->
+    <!--</div>-->
+
+
+    <div class="store-wrapper">
+        <main class="c-products" id="store">
+
+            <!-- Main section with products -->
+            <div class="c-products__listing" id="products__placeholder">
+                    <span>Loading...</span>
+                    <ul class="cl-list" style="display: none;">
+                        <!-- Regular -->
+                        <li class="cl-list__item">
+                            <div class="ci ci-weapon">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">Duty Calls</h3>
+                                </div>
+                                <div class="ci__figure">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <div class="ci__footer">
+                                    <p class="ci__footer__price">30 0000</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- In cart -->
+                        <li class="cl-list__item">
+
+                            <div class="ci ci-weapon ci-inCart">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">Duty Calls</h3>
+                                </div>
+                                <div class="ci__figure">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <div class="ci__footer">
+                                    <p class="ci__footer__price">30 0000</p>
+                                </div>
+                            </div>
+
+                        </li>
+                        <!-- Is Owned -->
+                        <li class="cl-list__item">
+
+                            <div class="ci ci-weapon ci-isOwned">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">The Knuckle Sandwich</h3>
+                                </div>
+                                <div class="ci__figure">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <div class="ci__footer">
+                                    <p class="ci__footer__price">Owned</p>
+                                </div>
+                            </div>
+
+                        </li>
+                        <!-- Is Owned -->
+                        <li class="cl-list__item">
+
+                            <div class="ci ci-weapon ci-isUnavalable">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">Duty Calls</h3>
+                                </div>
+                                <div class="ci__figure">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <div class="ci__footer">
+                                    <p class="ci__footer__price">600 000</p>
+                                </div>
+                            </div>
+
+                        </li>
+                        <!-- Is Owned -->
+                        <li class="cl-list__item">
+
+                            <div class="ci ci-weapon ci-isNew">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">Duty Calls</h3>
+                                </div>
+                                <div class="ci__figure" data-badge="New">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <div class="ci__footer">
+                                    <p class="ci__footer__price">30 0000</p>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+            </div>
+
+        </main>
+
+        <aside>
+
+            <div class="c-account">
+                <p>Available funds</p>
+                <p>350 000</p>
+            </div>
+
+            <div class="c-cart">
+
+                <!-- Cart summary (total items) -->
+                <div class="c-cart__count">
+                    2 items in cart
+                </div>
+
+                <!-- Cart content -->
+                <div class="c-cart__items">
+                    <ul class="cl-list">
+                        <li class="cl-list__item">
+                            <div class="ci ci-weapon" data-item-type="weapon" data-item-price="15000" data-item-name="The Grim Ripper">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">Duty Calls</h3>
+                                    <p class="ci__header__price">30 0000</p>
+                                </div>
+                                <div class="ci__figure">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <a href="#" class="ci--jsRemove">remove</a>
+                            </div>
+                        </li>
+                        <li class="cl-list__item">
+                            <div class="ci ci-weapon" data-item-type="weapon" data-item-price="15000" data-item-name="The Grim Ripper">
+                                <div class="ci__header">
+                                    <h3 class="ci__header__name">Duty Calls</h3>
+                                    <p class="ci__header__price">30 0000</p>
+                                </div>
+                                <div class="ci__figure">
+                                    <img class="ci__figure__image" src="/dist/s/gfx/item_weapon.png" alt="Weapon" />
+                                </div>
+                                <a href="#" class="ci--jsRemove">remove</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cart checkout -->
+                <div class="c-cart__checkout">
+                    <button>Buy for <span>65000</span></button>
+                </div>
+
+            </div>
+
+        </aside>
+    </div>
+
+
+    <footer id="footer"></footer>
+
+    <!--<div style="position: fixed; z-index: -99; width: 100%; height: 100%">-->
+        <!--<iframe frameborder="0" height="100%" width="100%"-->
+                <!--src="https://youtube.com/embed/ooGEP3wBcWo?autoplay=1&controls=0&showinfo=0&autohide=1">-->
+        <!--</iframe>-->
+    <!--</div>-->
+
+</body>
 </html>

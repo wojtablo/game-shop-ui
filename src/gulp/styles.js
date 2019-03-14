@@ -7,7 +7,7 @@ const prefix = require('gulp-autoprefixer');
 const sourcemaps  = require('gulp-sourcemaps');
 const print = require('gulp-print').default;
 
-module.exports = function (gulp, CONFIG) {
+module.exports = function (gulp, config) {
 
 	let _sassOptions = {
 		outputStyle: 'expanded'
@@ -19,21 +19,21 @@ module.exports = function (gulp, CONFIG) {
 
 
 	gulp.task('styles', function() {
-		return gulp.src([CONFIG.assets.styles])
+		return gulp.src([config.app.assets.styles])
 			.pipe(plumber())
 			.pipe(print())
 			.pipe(sourcemaps.init())
 			.pipe(sass(_sassOptions))
 			.pipe(prefix(_prefixerOptions))
 			.pipe(rename('main.css'))
-			.pipe(gulp.dest(CONFIG.public.styles))
+			.pipe(gulp.dest(config.app.public.styles))
 			.pipe(cssmin())
 			.pipe(rename({ suffix: '.min' }))
-			.pipe(gulp.dest(CONFIG.public.styles));
+			.pipe(gulp.dest(config.app.public.styles));
 	});
 
 	gulp.task('sass-lint', function() {
-		gulp.src([CONFIG.assets.styles])
+		gulp.src([config.app.assets.styles])
 			.pipe(sassLint())
 			.pipe(sassLint.format())
 			.pipe(sassLint.failOnError());

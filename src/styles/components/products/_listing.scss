@@ -1,0 +1,171 @@
+@import 'mixins';
+@import 'animations';
+
+/**
+
+   Component "C"
+    .c-
+
+   Components consists of "Content Layouts (cl)"
+    .cl-
+
+   Components may include "Content Items (c)"
+    .ci  .ci-weapon
+
+ */
+
+.store-wrapper  {
+  display:flex;
+  width:80%;
+  margin:5vh auto 0 auto;
+
+  main {
+    width: 75%
+  }
+  aside {
+    width: 25%;
+  }
+}
+
+
+.c-products {
+  position: relative;
+  transform-style: preserve-3d;
+  //transform: perspective(7.5cm) rotateX(-15deg) rotateY(15deg);
+
+  &__listing {
+    position: relative;
+    background-color: transparent;
+
+    // Background styles
+    &::before {
+      display: block;
+      content: "";
+      background: red;
+      position: absolute;
+      top:0;
+      bottom:0;
+      left:0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      filter: blur(175px);
+      opacity: .5;
+    }
+
+    // Content Layout definition
+    .cl-list {
+      display: flex;
+      flex-wrap: wrap;
+
+      &__item {
+        flex-direction: column;
+
+        flex: 1 1 160px;
+        margin: 10px;
+      }
+    }
+  }
+
+  // Default style for an item
+  @extend %ci;
+
+  // Modifiers
+  //@extend %ci-inCart;
+  //@extend %ci-isOwned;
+  //@extend %ci-isUnavalable;
+  //@extend %ci-isNew;
+}
+
+
+
+// a. CI Default Look
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+%ci {
+  .ci {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    color: $item-font-color;
+    background-color: $item-bg;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: $item-height-min;
+    height: $item-height;
+    margin:0 auto;
+    position: relative;
+    text-align: center;
+    width: $item-width;
+    transition: all 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 1px 1px rgba(0,0,0,0.22);
+
+
+      background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+      background-size: 400% 400%;
+      animation: Gradient 15s ease infinite;
+
+      img {
+        transform: scale(1);
+      }
+    }
+
+    // CI Header
+    &__header {
+      &__name {
+        font-size: $item-header-font-size;
+        font-weight: normal;
+        line-height: $item-header-font-line-height;
+      }
+    }
+
+    &__figure {
+      padding: $item-figure-padding;
+      &__image {
+        width: 100%;
+        transform: scale(0.9);
+        transition: all 0.1s ease;
+      }
+    }
+
+    // CI Footer
+    &__footer {
+      background-color: $item-footer-bg;
+      font-size: $item-footer-font-size;
+      padding: $item-footer-padding;
+      text-shadow: 1px 1px 1px #000;
+      &__price {
+        line-height: $item-footer-line-height;
+      }
+    }
+  }
+}
+
+// b. CI Look Modifiers
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+.ci--inCart {
+  .ci__footer {
+    background-color: $info-color;
+  }
+}
+
+.ci--isOwned {
+ .ci__footer {
+   background-color: #fff;
+   color: $item-footer-font-color--dark;
+   text-shadow: none;
+ }
+}
+
+.ci--isUnavalable {
+ .ci__footer {
+   background-color: $warning-color;
+ }
+}
+
+.ci-isNew {
+  @include ciBadge('.ci__figure', #000, $info-color)
+}
+

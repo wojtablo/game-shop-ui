@@ -2,17 +2,17 @@
 
 const browser = require('browser-sync');
 
-module.exports = function (gulp, CONFIG) {
+module.exports = function (gulp, config) {
 
 	gulp.task('server', function () {
 		browser.init({
 			//server: 'dist',
-			port: CONFIG.server.port.website,
+			port: config.app.browsersync.port,
 			ui: {
-				port: CONFIG.server.port.panel
+				port: config.app.browsersync.ui.port
 			},
 			proxy: {
-				target: CONFIG.server.domain,
+				target: config.app.domain,
 				middleware: function (req, res, next) {
 					//console.log(req.url);
 					next();
@@ -26,9 +26,9 @@ module.exports = function (gulp, CONFIG) {
 	});
 
 	gulp.task('watch', ['scripts', 'server'], function () {
-		gulp.watch([CONFIG.assets.scripts], ['scripts', 'reload']);
-		gulp.watch([CONFIG.assets.styles], ['styles', 'reload']);
-		gulp.watch([CONFIG.assets.pages], ['reload']);
+		gulp.watch([config.app.assets.scripts], ['scripts', 'reload']);
+		gulp.watch([config.app.assets.styles], ['styles', 'reload']);
+		gulp.watch([config.app.assets.pages], ['reload']);
 	});
 
 };
